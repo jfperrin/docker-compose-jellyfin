@@ -1,0 +1,15 @@
+---
+version: "3"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=latest
+    volumes:
+      - /data/git/docker-compose-jellyfin/config:/config
+      - /data/plex:/media
+    restart: unless-stopped
